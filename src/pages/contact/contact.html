@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      我的
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+
+    <img src="assets/imgs/1.jpg"/>
+    <ion-item>{{ myInfos.nickName }}</ion-item>
+  </ion-card>
+
+  <div padding>
+    <ion-segment [(ngModel)]="AboutMe">
+      <ion-segment-button value="我的信息">
+        我的信息
+      </ion-segment-button>
+      <ion-segment-button value="我的任务">
+        我的任务
+      </ion-segment-button>
+      <ion-segment-button value="我的收藏">
+        我的收藏
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  
+  <div [ngSwitch]="AboutMe">
+    <ion-list *ngSwitchCase="'我的信息'">
+      <ion-item>账号：{{ myInfos.ID }}</ion-item>
+      <button ion-item (click)="editGender()">性别：{{ myInfos.gender }}</button>
+      <button ion-item (click)="editNumber()">电话：{{ myInfos.number }}</button>
+      <button ion-item (click)="editJob()">职业：{{ myInfos.job }}</button>
+    </ion-list>
+  
+    <ion-list *ngSwitchCase="'我的任务'">
+      <ion-item *ngFor="let task of myTask" (click)="viewMessages(chat)">
+        <ion-thumbnail item-start>
+          <img [src]="task.imageUrl">
+        </ion-thumbnail>
+        <h2>{{task.title}}</h2>
+        <p>{{task.location}}</p>
+        <p>{{task.ddl}}</p>
+        <ion-note>{{task.pay}}</ion-note>
+        <ion-badge style="margin-left: 140px">{{task.state}}</ion-badge>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'我的收藏'">
+      <ion-item *ngFor="let task of myTask" (click)="viewMessages(chat)">
+        <ion-thumbnail item-start>
+          <img [src]="task.imageUrl">
+        </ion-thumbnail>
+        <h2>{{task.title}}</h2>
+        <p>{{task.location}}</p>
+        <p>{{task.ddl}}</p>
+        <ion-note>
+          {{task.pay}}
+          <ion-badge style="margin-left: 140px">{{task.state}}</ion-badge>
+        </ion-note>
+        
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

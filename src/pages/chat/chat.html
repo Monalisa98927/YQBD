@@ -1,0 +1,44 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>任务</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <ion-searchbar style="padding: 0 8px;
+    min-height: 55px;
+    border-top: 0.55px solid transparent;
+    border-bottom: 0.55px solid rgba(0, 0, 0, 0.05);
+    background: rgba(243, 245, 248, 0.863);
+    margin-left: -18px;
+    width: 110%;
+    margin-top: -15px;
+    margin-bottom: -30px;
+    left: 10px; 
+    top: 13px; 
+    height: 4rem; 
+    font-size: 1.8rem;" (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-list>
+      <ion-item *ngFor="let item of items">
+        {{ item }}
+      </ion-item>
+    </ion-list>
+  <ion-list>
+    <!-- <ion-list-header>Today</ion-list-header> -->
+    <!-- 点击的时候跳转界面 -->
+    <ion-item *ngFor="let task of tasks" (click)="openTaskDetailPage(task)">
+      <ion-thumbnail style="width: 80px; height: 80px;" item-start>
+        <img style="width: 80px; height: 80px;"  [src]="task.imageUrl">
+      </ion-thumbnail>
+      <h2>{{task.title}}</h2>
+      <p>{{task.location}}</p>
+      <p>{{task.ddl}}</p>
+      <ion-note style="color: #f70a0a;">{{task.pay}}</ion-note>
+      <ion-badge style="color: #fff;">{{task.state}}</ion-badge>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
