@@ -36,7 +36,7 @@
     </ion-list>
   
     <ion-list *ngSwitchCase="'我的任务'">
-      <ion-item *ngFor="let task of myTask" (click)="viewMessages(chat)">
+      <ion-item *ngFor="let task of myTask" (click)="openTaskDetailPage(task)">
         <ion-thumbnail item-start>
           <img [src]="task.imageUrl">
         </ion-thumbnail>
@@ -49,7 +49,7 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'我的收藏'">
-      <ion-item *ngFor="let task of myTask" (click)="viewMessages(chat)">
+      <ion-item *ngFor="let task of myTask" (click)="openTaskDetailPage(task)">
         <ion-thumbnail item-start>
           <img [src]="task.imageUrl">
         </ion-thumbnail>

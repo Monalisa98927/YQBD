@@ -4,23 +4,128 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>欢迎来到有求必达!</h2>
-  <h3>登录账号</h3>
-  <ion-list>
+<ion-content padding class="tutorial-page">
+  <ion-slides pager style="margin-top:0px;  max-height: 300px;">
 
-    <ion-item>
-      <ion-label fixed>用户名</ion-label>
-      <ion-input type="text" value=""></ion-input>
-    </ion-item>
+    <ion-slide *ngFor="let slide of slides">
+      <!-- <ion-toolbar>
+        <ion-buttons end>
+          <button ion-button color="primary">Skip</button>
+        </ion-buttons>
+      </ion-toolbar> -->
+      <img [src]="slide.image" class="slide-image"/>
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <!-- <p [innerHTML]="slide.description"></p> -->
+    </ion-slide>
+    <ion-slide>
+      <!-- <ion-toolbar>
+      </ion-toolbar> -->
+      <img src="assets/imgs/3.jpg" class="slide-image"/>
+      <h2 class="slide-title">现在开始你的有求必达之旅！</h2>
+      <!-- <button ion-button large clear icon-end color="primary">
+        Continue
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button> -->
+    </ion-slide>
   
-    <ion-item>
-      <ion-label fixed>密码</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
+  </ion-slides>
+
+  <div class="task-segment">
+
+    <div padding>
+      <ion-segment [(ngModel)]="AboutTask">
+        <ion-segment-button value="我的任务">
+          我的任务
+        </ion-segment-button>
+        <ion-segment-button value="任务分类">
+          任务分类
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+    <div [ngSwitch]="AboutTask">
+
+      <ion-list *ngSwitchCase="'我的任务'">
+        <ion-item>账号：{{ myInfos.ID }}</ion-item>
+        <button ion-item (click)="editGender()">性别：{{ myInfos.gender }}</button>
+        <button ion-item (click)="editNumber()">电话：{{ myInfos.number }}</button>
+        <button ion-item (click)="editJob()">职业：{{ myInfos.job }}</button>
+      </ion-list>
+      
+      <ion-list *ngSwitchCase="'任务分类'">
+          <ion-item *ngFor="let task of myTask" (click)="openTaskDetailPage(task)">
+              <ion-thumbnail style="width: 80px; height: 80px;" item-start>
+                <img style="width: 80px; height: 80px;"  [src]="task.imageUrl">
+              </ion-thumbnail>
+              <h2 style="color: black;">{{task.title}}</h2>
+              <p>{{task.location}}</p>
+              <p>{{task.ddl}}</p>
+              <ion-note style="color: #f70a0a;">{{task.pay}}</ion-note>
+              <ion-badge style="margin-left: 120px; color: #fff;">{{task.state}}</ion-badge>
+            </ion-item>
+      </ion-list>
+
+    </div>
+
+<ion-list>
+
   
+
+</ion-list>
+
+</div>
+
+<!-- 
+  <div padding>
+  <ion-segment  [(ngModel)]="AboutMe">
+    <ion-segment-button style="margin-top: -500px;" value="我的信息">
+      我的信息
+    </ion-segment-button>
+    <ion-segment-button style="margin-top: -500px;" value="我的任务">
+      我的任务
+    </ion-segment-button>
+    <ion-segment-button style="margin-top: -500px;" value="我的收藏">
+      我的收藏
+    </ion-segment-button>
+  </ion-segment>
+  </div>
+
+<div [ngSwitch]="AboutMe">
+  <ion-list *ngSwitchCase="'我的信息'">
+    <ion-item>账号：{{ myInfos.ID }}</ion-item>
+    <button ion-item (click)="editGender()">性别：{{ myInfos.gender }}</button>
+    <button ion-item (click)="editNumber()">电话：{{ myInfos.number }}</button>
+    <button ion-item (click)="editJob()">职业：{{ myInfos.job }}</button>
   </ion-list>
 
-  <button ion-button block>登 录</button>
-  
+  <ion-list *ngSwitchCase="'我的任务'">
+    <ion-item *ngFor="let task of myTask" (click)="viewMessages(chat)">
+      <ion-thumbnail item-start>
+        <img [src]="task.imageUrl">
+      </ion-thumbnail>
+      <h2>{{task.title}}</h2>
+      <p>{{task.location}}</p>
+      <p>{{task.ddl}}</p>
+      <ion-note>{{task.pay}}</ion-note>
+      <ion-badge style="margin-left: 140px">{{task.state}}</ion-badge>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'我的收藏'">
+    <ion-item *ngFor="let task of myTask" (click)="viewMessages(chat)">
+      <ion-thumbnail item-start>
+        <img [src]="task.imageUrl">
+      </ion-thumbnail>
+      <h2>{{task.title}}</h2>
+      <p>{{task.location}}</p>
+      <p>{{task.ddl}}</p>
+      <ion-note>
+        {{task.pay}}
+        <ion-badge style="margin-left: 140px">{{task.state}}</ion-badge>
+      </ion-note>
+      
+    </ion-item>
+  </ion-list>
+  </div> -->
+
 </ion-content>

@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ItemDetailsPage } from '../item-details/item-details';
 import { mockTasks } from '../../mockData/mockTasks';
+import { TaskDetailPage } from '../chat/chat';
 @Component({
   selector: 'page-contact',
   templateUrl: 'Contact.html',
   styles: ['./contact.scss'],
 })
 export class ContactPage {
-  private myTask = mockTasks;
+  public myTask = mockTasks;
   public AboutMe : string = '我的信息';
 
   constructor(public navCtrl: NavController) {
@@ -32,5 +33,10 @@ export class ContactPage {
       item: item
     });
   }
+
+  openTaskDetailPage(task) {
+    this.navCtrl.push(TaskDetailPage, { task: task });
+  }
+
 }
 

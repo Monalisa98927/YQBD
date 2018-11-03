@@ -15,6 +15,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { PipesModule } from '../pipes/pipes.module';
 import { GetMessageService } from '../providers/getMessageService';
 import { HttpModule } from '@angular/http';
+import { LoginPage } from '../pages/login/login';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpModule } from '@angular/http';
     HomePage,
     TabsPage,
     ItemDetailsPage,
-    TaskDetailPage
+    TaskDetailPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { HttpModule } from '@angular/http';
     HomePage,
     TabsPage,
     ItemDetailsPage,
-    TaskDetailPage
+    TaskDetailPage,
+    LoginPage
   ],
   providers: [
     StatusBar,

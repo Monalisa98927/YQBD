@@ -20,25 +20,40 @@
     top: 13px; 
     height: 4rem; 
     font-size: 1.8rem;" (ionInput)="getItems($event)"></ion-searchbar>
-    <ion-list>
-      <ion-item *ngFor="let item of items">
-        {{ item }}
-      </ion-item>
-    </ion-list>
-  <ion-list>
-    <!-- <ion-list-header>Today</ion-list-header> -->
-    <!-- 点击的时候跳转界面 -->
-    <ion-item *ngFor="let task of tasks" (click)="openTaskDetailPage(task)">
-      <ion-thumbnail style="width: 80px; height: 80px;" item-start>
-        <img style="width: 80px; height: 80px;"  [src]="task.imageUrl">
-      </ion-thumbnail>
-      <h2>{{task.title}}</h2>
-      <p>{{task.location}}</p>
-      <p>{{task.ddl}}</p>
-      <ion-note style="color: #f70a0a;">{{task.pay}}</ion-note>
-      <ion-badge style="color: #fff;">{{task.state}}</ion-badge>
-    </ion-item>
 
-  </ion-list>
+    <div padding>
+      <ion-segment [(ngModel)]="AboutTask">
+        <ion-segment-button value="我的任务">
+          我的任务
+        </ion-segment-button>
+        <ion-segment-button value="任务分类">
+          任务分类
+        </ion-segment-button>
+    
+      </ion-segment>
+    </div>
+
+    <div [ngSwitch]="AboutTask">
+      <ion-list *ngSwitchCase="'我的任务'">
+        <ion-item>账号：{{ myInfos.ID }}</ion-item>
+        <button ion-item (click)="editGender()">性别：{{ myInfos.gender }}</button>
+        <button ion-item (click)="editNumber()">电话：{{ myInfos.number }}</button>
+        <button ion-item (click)="editJob()">职业：{{ myInfos.job }}</button>
+      </ion-list>
+    
+      <ion-list *ngSwitchCase="'任务分类'">
+          <ion-item *ngFor="let task of myTask" (click)="openTaskDetailPage(task)">
+              <ion-thumbnail style="width: 80px; height: 80px;" item-start>
+                <img style="width: 80px; height: 80px;"  [src]="task.imageUrl">
+              </ion-thumbnail>
+              <h2 style="color: black;">{{task.title}}</h2>
+              <p>{{task.location}}</p>
+              <p>{{task.ddl}}</p>
+              <ion-note style="color: #f70a0a;">{{task.pay}}</ion-note>
+              <ion-badge style="margin-left: 120px; color: #fff;">{{task.state}}</ion-badge>
+            </ion-item>
+      </ion-list>
+  
+    </div>
 
 </ion-content>

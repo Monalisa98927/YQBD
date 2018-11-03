@@ -1,7 +1,7 @@
-import {Component,ViewChild} from '@angular/core';
-import {IonicPage, NavController, NavParams,Content} from 'ionic-angular';
+import {Component } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
 import { mockTasks } from '../../mockData/mockTasks';
-import { FormControl, FormBuilder } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   templateUrl: 'TaskDetail.html',

@@ -1,4 +1,4 @@
-import { FormControl, FormBuilder } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import {Component,ViewChild} from '@angular/core';
 import {IonicPage, NavController, Content ,NavParams} from 'ionic-angular';
 import { mockTasks } from '../../mockData/mockTasks';
@@ -13,7 +13,7 @@ import { mockTasks } from '../../mockData/mockTasks';
 export class TaskDetailPage {
   
 @ViewChild(Content) content: Content;
-private task;
+public task;
 constructor(public navCtrl: NavController, 
             public navParams: NavParams,
             public formBuilder: FormBuilder) {
