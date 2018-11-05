@@ -1,4 +1,33 @@
-<ion-header>
+import {Component } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
+import { mockTasks } from '../../mockData/mockTasks';
+import { FormBuilder } from '@angular/forms';
+import { TaskDetailPage } from '../chat/chat';
+import { mockMyProfile } from '../../mockData/mockMyProfile';
+import { mockTypes } from '../../mockData/mockTypes';
+
+@Component({
+  templateUrl: 'taskType.html',
+  styles: ['./taskType.scss'],
+})
+
+export class taskTypePage {
+
+//@ViewChild(Content) content: Content;
+myTask = mockTasks;
+myInfo = mockMyProfile;
+types = mockTypes;
+type : number;
+constructor(public navCtrl: NavController, 
+            public navParams: NavParams,
+            public formBuilder: FormBuilder) {
+                this.type=navParams.data.type;
+            }
+
+}
+
+@Component({
+  template: `<ion-header>
   <ion-navbar>
     <ion-title>首页</ion-title>
   </ion-navbar>
@@ -149,5 +178,31 @@
 </ion-list>
 
 </div>
-
 </ion-content>
+`,
+   styles: ['./taskType.scss']
+})
+export class HomePage {
+  myTask = mockTasks;
+  types = mockTypes;
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public nav: NavController) {
+               
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad homePage');
+  }
+
+  openTaskDetailPage(task) {
+    this.nav.push(TaskDetailPage, { task: task });
+  }
+
+  openTaskCatalog(type:number) {
+
+    console.log("The type : "+type);
+    this.navCtrl.push(taskTypePage,{type:type});
+  }
+
+}

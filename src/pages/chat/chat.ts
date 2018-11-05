@@ -2,16 +2,18 @@ import {Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { mockTasks } from '../../mockData/mockTasks';
 import { FormBuilder } from '@angular/forms';
+import { mockTypes } from '../../mockData/mockTypes';
 
 @Component({
   templateUrl: 'TaskDetail.html',
-  styles: ['./chat.scss'],
+  styles: ['./chat.scss']
 })
 
 export class TaskDetailPage {
 
 //@ViewChild(Content) content: Content;
 task;
+types = mockTypes;
 constructor(public navCtrl: NavController, 
             public navParams: NavParams,
             public formBuilder: FormBuilder) {
@@ -57,6 +59,7 @@ constructor(public navCtrl: NavController,
 })
 export class ChatPage {
   tasks = [];
+  types = mockTypes;
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public nav: NavController) {

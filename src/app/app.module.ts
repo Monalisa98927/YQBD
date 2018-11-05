@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TaskDetailPage } from '../pages/chat/chat';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
+import { taskTypePage } from '../pages/home/home'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,6 +17,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { GetMessageService } from '../providers/getMessageService';
 import { HttpModule } from '@angular/http';
 import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/login/register';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { LoginPage } from '../pages/login/login';
     TabsPage,
     ItemDetailsPage,
     TaskDetailPage,
-    LoginPage
+    LoginPage,
+    taskTypePage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,9 @@ import { LoginPage } from '../pages/login/login';
     TabsPage,
     ItemDetailsPage,
     TaskDetailPage,
-    LoginPage
+    LoginPage,
+    taskTypePage,
+    RegisterPage
   ],
   providers: [
     StatusBar,

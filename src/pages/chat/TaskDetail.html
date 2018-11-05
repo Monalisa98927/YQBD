@@ -23,6 +23,7 @@
         </ion-title>
     <img [src]="task.imageUrl"> 
     <ion-item>地点：{{ task.location }}</ion-item> 
+    <ion-item>任务类别：{{ types[task.typeId-1].title }}</ion-item> 
     <ion-item>{{ task.ddl }}</ion-item>
     <ion-item>人数限制：{{ task.volunteerNum }}</ion-item>
     <ion-item>
