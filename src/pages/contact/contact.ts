@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { ItemDetailsPage } from '../item-details/item-details';
 import { mockTasks } from '../../mockData/mockTasks';
 import { TaskDetailPage } from '../chat/chat';
+import { ViewTaskCandidatesPage } from '../viewTaskCandidates/viewTaskCandidates';
 @Component({
   selector: 'page-contact',
   templateUrl: 'Contact.html',
@@ -38,5 +39,8 @@ export class ContactPage {
     this.navCtrl.push(TaskDetailPage, { task: task });
   }
 
+  viewCandidates(task){
+    this.navCtrl.push(ViewTaskCandidatesPage,{task:task});
+  }
 }
 

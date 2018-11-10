@@ -1,3 +1,7 @@
+page-chat .input-wrapper {
+    min-width: 300px;
+}
+
 page-chat .item-ios [item-right], .item-ios [item-end] {
     color: #ffffff;
 }
@@ -10,6 +14,7 @@ page-TaskDetail .toolbar-title-ios {
     pointer-events: auto;
     margin-top: 30px;
     margin-bottom: 30px;
+    min-width: 300px;
 }
 
 page-chat .item-ios ion-thumbnail ion-img, .item-ios ion-thumbnail img {
@@ -18,6 +23,7 @@ page-chat .item-ios ion-thumbnail ion-img, .item-ios ion-thumbnail img {
 }
 page-chat .item-ios h2 {
     margin: 0 0 2px;
+    min-width: 300px;
     font-size: 1.7rem;
     font-weight: normal;
     font-weight: bolder;

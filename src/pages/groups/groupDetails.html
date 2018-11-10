@@ -1,0 +1,27 @@
+<ion-header>
+
+    <ion-navbar>        
+    </ion-navbar>      
+  </ion-header>
+
+  <ion-content padding>
+      <ion-title style="text-align: center; margin-bottom: 10px; font-weight: bolder; font-size: 2.4rem;">
+          {{group.title}} 
+      </ion-title>
+    <img [src]="group.imageUrl"> 
+    <ion-item>地点：{{ group.location }}</ion-item> 
+    <ion-item>群组人数：{{ group.member }}</ion-item> 
+    <ion-item>联系方式：{{ group.contactDetail }}</ion-item> 
+    <p style="margin-left:20px ; margin-right:20px; font-size: 1.5rem; line-height: 20px;">详细信息：</p>
+    <p style="margin-left:20px ; margin-right:20px; font-size: 1.5rem; line-height: 20px; color: #807d7d;">{{ group.description }}</p>
+ 
+    <ion-list style="margin-top: 50px;">
+        <ion-list-header style="text-align: center; color: royalblue; font-weight: bolder; font-size: 2rem;">
+            群  组  公  告
+        </ion-list-header>
+        <ion-item>
+
+        </ion-item>
+    </ion-list>
+
+    </ion-content>

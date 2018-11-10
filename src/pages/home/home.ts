@@ -6,6 +6,7 @@ import { FormBuilder } from '@angular/forms';
 import { mockMyProfile } from '../../mockData/mockMyProfile';
 import { mockSlides } from '../../mockData/mockSlides';
 import { mockTypes } from '../../mockData/mockTypes';
+import { AddTaskPage } from '../addTasks/addTasks';
 
 @Component({
   templateUrl: 'taskType.html',
@@ -36,7 +37,17 @@ constructor(public navCtrl: NavController,
   template: `<ion-header>
   <ion-navbar>
     <ion-title>首页</ion-title>
+    <button style="background-color: #f8f8f8; 
+    margin-left: 320px; 
+    font-weight: bolder;
+    color: #488aff;
+    font-size: 3.0rem;
+    " (click)="openAddTaskPage()">
+    <ion-icon name="add-circle"></ion-icon>
+  </button>
   </ion-navbar>
+  
+
 </ion-header>
 
 <ion-content padding class="tutorial-page">
@@ -169,7 +180,8 @@ constructor(public navCtrl: NavController,
       </ion-list>
       
       <ion-list *ngSwitchCase="'全部任务'">
-          <ion-item *ngFor="let task of myTask" (click)="openTaskDetailPage(task)">
+          <ion-item-sliding *ngFor="let task of myTask" (click)="openTaskDetailPage(task)">
+            <ion-item>
               <ion-thumbnail style="width: 80px; height: 80px;" item-start>
                 <img style="width: 80px; height: 80px;"  [src]="task.imageUrl">
               </ion-thumbnail>
@@ -179,6 +191,14 @@ constructor(public navCtrl: NavController,
               <ion-note style="color: #f70a0a;">{{task.pay}}</ion-note>
               <ion-badge style="margin-left: 120px; color: #fff;">{{task.state}}</ion-badge>
             </ion-item>
+            <ion-item-options>
+              <button ion-button>
+                <ion-icon>
+                   收藏
+                </ion-icon>
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
       </ion-list>
 
     </div>
@@ -222,4 +242,7 @@ export class HomePage {
     this.navCtrl.push(taskTypePage,{typeIndex:typeIndex});
   }
 
+  openAddTaskPage(){
+    this.nav.push(AddTaskPage);
+  }
 }

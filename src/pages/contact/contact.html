@@ -18,8 +18,11 @@
       <ion-segment-button value="我的信息">
         我的信息
       </ion-segment-button>
-      <ion-segment-button value="我的任务">
-        我的任务
+      <ion-segment-button value="我的申请">
+        我的申请
+      </ion-segment-button>
+      <ion-segment-button value="我的发布">
+        我的发布
       </ion-segment-button>
       <ion-segment-button value="我的收藏">
         我的收藏
@@ -35,7 +38,7 @@
       <button ion-item (click)="editJob()">职业：{{ myInfos.job }}</button>
     </ion-list>
   
-    <ion-list *ngSwitchCase="'我的任务'">
+    <ion-list *ngSwitchCase="'我的申请'">
       <ion-item *ngFor="let task of myTask" (click)="openTaskDetailPage(task)">
         <ion-thumbnail item-start>
           <img [src]="task.imageUrl">
@@ -46,6 +49,26 @@
         <ion-note>{{task.pay}}</ion-note>
         <ion-badge style="margin-left: 140px">{{task.state}}</ion-badge>
       </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'我的发布'">
+      <ion-item-sliding *ngFor="let task of myTask" (click)="openTaskDetailPage(task)">
+        <ion-item>
+        <ion-thumbnail item-start>
+          <img [src]="task.imageUrl">
+        </ion-thumbnail>
+        <h2>{{task.title}}</h2>
+        <p>{{task.location}}</p>
+        <p>{{task.ddl}}</p>
+        <ion-note>{{task.pay}}</ion-note>
+        <ion-badge style="margin-left: 140px">{{task.state}}</ion-badge>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button (click)="viewCandidates(task)">
+          查看申请人
+        </button>
+      </ion-item-options>
+      </ion-item-sliding>
     </ion-list>
 
     <ion-list *ngSwitchCase="'我的收藏'">

@@ -9,7 +9,10 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TaskDetailPage } from '../pages/chat/chat';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { taskTypePage } from '../pages/home/home'
+import { taskTypePage } from '../pages/home/home';
+import { GroupsPage } from '../pages/groups/groups'; 
+import { AddTaskPage } from '../pages/addTasks/addTasks'; 
+import { GroupDetailsPage } from '../pages/groups/groupDetails';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,6 +21,8 @@ import { GetMessageService } from '../providers/getMessageService';
 import { HttpModule } from '@angular/http';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/login/register';
+import { EntryFormPage } from '../pages/entryForm/entryForm';
+import { ViewTaskCandidatesPage } from '../pages/viewTaskCandidates/viewTaskCandidates';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,12 @@ import { RegisterPage } from '../pages/login/register';
     TaskDetailPage,
     LoginPage,
     taskTypePage,
-    RegisterPage
+    RegisterPage,
+    GroupsPage,
+    AddTaskPage,
+    GroupDetailsPage,
+    EntryFormPage,
+    ViewTaskCandidatesPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +59,12 @@ import { RegisterPage } from '../pages/login/register';
     TaskDetailPage,
     LoginPage,
     taskTypePage,
-    RegisterPage
+    RegisterPage,
+    GroupsPage,
+    AddTaskPage,
+    GroupDetailsPage,
+    EntryFormPage,
+    ViewTaskCandidatesPage
   ],
   providers: [
     StatusBar,

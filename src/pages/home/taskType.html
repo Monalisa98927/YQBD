@@ -26,18 +26,26 @@
         <ion-list style="margin-top: 60px; margin-left: -15px;">
            
             <ng-container *ngFor="let task of myTask">
-                <ion-item *ngIf="task.typeId==typeIndex" (click)="openTaskDetailPage(task)">
-                
-                  <ion-thumbnail  style="width: 80px; height: 80px;" item-start>
-                  <img style="width: 80px; height: 80px;"  [src]="task.imageUrl">
-                  </ion-thumbnail>
-                  <h2 style="color: black;">{{task.title}}</h2>
-                  <p>{{task.location}}</p>
-                  <p>{{task.ddl}}</p>
-                  <ion-note style="color: #f70a0a;">{{task.pay}}</ion-note>
-                  <ion-badge style="margin-left: 120px; color: #fff;">{{task.state}}</ion-badge>
-                  
-                </ion-item>
+                <ion-item-sliding *ngIf="task.typeId==typeIndex" (click)="openTaskDetailPage(task)">
+                 <ion-item>
+                    <ion-thumbnail  style="width: 80px; height: 80px;" item-start>
+                        <img style="width: 80px; height: 80px;"  [src]="task.imageUrl">
+                        </ion-thumbnail>
+                        <h2 style="color: black;">{{task.title}}</h2>
+                        <p>{{task.location}}</p>
+                        <p>{{task.ddl}}</p>
+                        <ion-note style="color: #f70a0a;">{{task.pay}}</ion-note>
+                        <ion-badge style="margin-left: 120px; color: #fff;">{{task.state}}</ion-badge>
+                        
+                 </ion-item>
+                 <ion-item-options>
+                   <button ion-button>
+                     <ion-icon>
+                        收藏
+                     </ion-icon>
+                   </button>
+                 </ion-item-options>
+                </ion-item-sliding>
             </ng-container>               
         </ion-list>
       </div>

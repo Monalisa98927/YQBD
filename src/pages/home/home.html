@@ -128,7 +128,8 @@
       </ion-list>
       
       <ion-list *ngSwitchCase="'任务分类'">
-          <ion-item *ngFor="let task of myTask" (click)="openTaskDetailPage(task)">
+          <ion-item-sliding *ngFor="let task of myTask" (click)="openTaskDetailPage(task)">
+            <ion-item>
               <ion-thumbnail style="width: 80px; height: 80px;" item-start>
                 <img style="width: 80px; height: 80px;"  [src]="task.imageUrl">
               </ion-thumbnail>
@@ -138,6 +139,13 @@
               <ion-note style="color: #f70a0a;">{{task.pay}}</ion-note>
               <ion-badge style="margin-left: 120px; color: #fff;">{{task.state}}</ion-badge>
             </ion-item>
+            <ion-item-options>
+              <button ion-button>
+                <ion-icon name="heart"></ion-icon>
+                收藏
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
       </ion-list>
 
     </div>
